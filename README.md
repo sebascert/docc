@@ -25,6 +25,23 @@ compile your document with:
 The output document will be in `out/<configured-name>`, which defaults to
 `out/doc.pdf`.
 
+To see the full usage of this script run:
+
+```bash
+./docs.sh --help
+```
+
+### Sources Formatting
+
+[Prettier](https://prettier.io/) is used for formatting the source files, to do
+so run:
+
+> The cover page is excluded as it uses non standard pandoc markdown syntax.
+
+```bash
+./docc.sh --format
+```
+
 ## Config
 
 > The default configuration is mostly to my taste.
@@ -53,17 +70,6 @@ sources:
 #- source1
 #- source2
 #- ...
-```
-
-## Sources Formatting
-
-[Prettier](https://prettier.io/) is used for formatting the source files, to do
-so run:
-
-> The cover page is excluded as it uses non standard markdown syntax.
-
-```bash
-find src/ -name "*.md" ! -path src/cover.md -exec prettier --write {} \;
 ```
 
 ## Version Control Workflows
