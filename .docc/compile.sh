@@ -123,4 +123,10 @@ pandoc_options=(
     --metadata-file="$metadata"
     --filter pandoc-include
 )
+
+cd "$source_dir" || {
+    echo "Error: unable to enter .docc dir"
+    exit 1
+} >&2
+
 pandoc "${pandoc_options[@]}" "${listed_sources[@]}" -o "$output"
