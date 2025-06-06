@@ -1,10 +1,7 @@
-# Document Compiler
+# Docc
 
-I still don't find LaTex pleasant to use, so I created this for simple document
-generation utilities.
-
-Document Compiler compiles a bunch of markdown into a given target, supported by
-[pandoc](https://pandoc.org/).
+Docc compiles a bunch of markdown into a given target, using
+[pandoc](https://pandoc.org/) under the hood.
 
 ## Dependencies
 
@@ -22,7 +19,7 @@ control workflow, add your document contents to `src/` in markdown files, then
 compile your document with:
 
 ```bash
-./compile.sh
+./docc.sh
 ```
 
 The output document will be in `out/<configured-name>`, which defaults to
@@ -32,15 +29,15 @@ The output document will be in `out/<configured-name>`, which defaults to
 
 > The default configuration is mostly to my taste.
 
-Pandoc configuration is stored in `metadata.yaml`, read the official docs on
+Pandoc configuration is stored in `config/metadata.yaml`, read the official docs on
 [pandoc metadata](https://pandoc.org/MANUAL.html#metadata-variables) for the
 available options. Change the cover contents in `src/cover.md`, read the
 [official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block) for
 the format and options.
 
-> The table of contents is configured in `metadata.yaml`
+> The table of contents is configured in `config/metadata.yaml`
 
-Document Compiler configuration is stored in `config.yaml`, the available
+Document Compiler configuration is stored in `config/config.yaml`, the available
 options are as follows:
 
 ```yaml

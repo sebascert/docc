@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
 
 # Retrieves key from config or prints error
+# Usage: getkey.sh <optional|mandatory> KEY FILE TYPE
+# Valid types:
+#     bool
+#     number
+#     string
+#     array
 
 set -euo pipefail
-trap 'echo "❌ Error on line $LINENO: $BASH_COMMAND" >&2' ERR
-
-usage(){
-    echo "Usage: getkey.sh <optional|mandatory> KEY FILE TYPE"
-    echo "Valid types:"
-    echo "    bool"
-    echo "    number"
-    echo "    string"
-    echo "    array"
-}
 
 [ $# -eq 4 ] || {
-    usage
     exit 1
 } >&2
 
@@ -34,6 +29,11 @@ case "$optional_str" in
         exit 1
         ;;
 esac
+
+command -v yq > /dev/null 2>&1  || {
+    echo "yq is not installed"
+    exit 1
+} >&2
 
 type="$(yq -r ".${key} | type" "$file")"
 
@@ -83,7 +83,7 @@ case "$expected_type" in
             exit 1
         } >&2
         # Output elements separated by nulls for safe reading
-        # usage: mapfile -d '' -t arr < <(./getkey.sh ...)
+        # Usage: mapfile -d '' -t arr < <(./getkey.sh ...)
         yq -r ".${key}[]" "$file" | tr '\n' '\0'
         ;;
     *)
