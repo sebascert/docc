@@ -3,6 +3,15 @@
 Docc converts a collection of markdown sources into a given target, using
 [pandoc](https://pandoc.org/) under the hood.
 
+## Features
+
+- [x] Converts structured markdown documents into polished PDFs using Pandoc.
+- [x] Customizable output file name, cover page inclusion, and document
+      structure via YAML configuration.
+- [x] Suport [pandoc-include](https://github.com/DCsunset/pandoc-include).
+- [x] Supports formatting of source Markdown files using Prettier for
+      consistent style.
+
 ## Dependencies
 
 Docc requires:
@@ -40,6 +49,16 @@ so run:
 
 ```bash
 ./docc.sh --format
+```
+
+### Pandoc Include Paths
+
+You can user [pandoc-include](https://github.com/DCsunset/pandoc-include) to
+include the contents of files into your document:
+
+```markdown
+!include /.../src/script.py <!-- absolute path-->
+!include script.py <!-- relative path to src/ dir-->
 ```
 
 ## Config
