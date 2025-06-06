@@ -1,22 +1,22 @@
 # Docc
 
-Docc compiles a bunch of markdown into a given target, using
+Docc converts a collection of markdown sources into a given target, using
 [pandoc](https://pandoc.org/) under the hood.
 
 ## Dependencies
 
-Document Compiler requires:
+Docc requires:
 
 - [pandoc >=3](https://pandoc.org/installing.html).
-- [python >=3.y](https://www.python.org/downloads/).
+- [python >=3.7](https://www.python.org/downloads/).
 - [yq >=4](https://github.com/mikefarah/yq/#install).
 
 ## How to use
 
-There are several ways to use this project depending on your
-[version control needs](#version-control-workflows). After choosing a version
-control workflow, add your document contents to `src/` in markdown files, then
-compile your document with:
+There are several ways to use this project depending on your [version control
+needs](#version-control-workflows). After choosing a version control workflow,
+add your document contents to `src/` in markdown files, then generate your
+document with:
 
 ```bash
 ./docc.sh
@@ -54,8 +54,8 @@ the format and options.
 
 > The table of contents is configured in `config/metadata.yaml`
 
-Document Compiler configuration is stored in `config/config.yaml`, the available
-options are as follows:
+Docc configuration is stored in `config/config.yaml`, the available options are
+as follows:
 
 ```yaml
 output_filename: doc.pdf
@@ -76,7 +76,7 @@ sources:
 
 ### GitHub Fork
 
-The simplest way to use Document Compiler with version control is to
+The simplest way to use Docc with version control is to
 [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
 this repo, this gives you an identical copy of this repo, under your GitHub
 account.
@@ -84,14 +84,13 @@ account.
 ### Within a Git Repo
 
 A common scenario is wanting to track the documentation for a project. The
-straightforward approach is to discard the history of this repo, and just commit
-the project files into your project history. However, this becomes problematic
-when you need to upgrade to a different version of Document Compiler.
+straightforward approach is to discard the history of this repo, and just
+commit the project files into your project history. However, this becomes
+problematic when you need to upgrade to a different version of Docc.
 
 A better solution is to use `git submodules`, with them you can manage the
-history of both your project and doc-compiler simultaneously by
-[forking](#github-fork) this repo and then using it as a submodule of your
-project.
+history of both your project and docc simultaneously by [forking](#github-fork)
+this repo and then using it as a submodule of your project.
 
 > If you're not familiar with them, I highly recommend reading this
 > [guide](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
@@ -102,8 +101,8 @@ If you wish to discard version control (discouraged), simply download the repo
 contents and remove the git database:
 
 ```bash
-git clone --depth=1 "https://github.com/sebascert/doc-compiler.git"
-rm -rf ./doc-compiler/.git
+git clone --depth=1 "https://github.com/sebascert/docc.git"
+rm -rf ./docc/.git
 ```
 
 ### Tags
@@ -112,21 +111,21 @@ When you fork the repo you may want to keep this repo as a remote to upgrade to
 new versions, to do so add it as the `upstream` remote in your local clone:
 
 ```bash
-# on your doc-compiler-fork clone
-git remote add upstream https://github.com/sebascert/doc-compiler.git
+# on your docc clone
+git remote add upstream https://github.com/sebascert/docc.git
 ```
 
 Another useful tip is to take advantage of the `git refspec`, and prefix the
-Document Compiler tags with `doc-compiler/` (as git prefix branches from a
-remote with `remote/`), for configuring this, edit the `[remote "upstream"]`
-section in your `.git/config` with:
+Docc tags with `docc/` (as git prefix branches from a remote with `remote/`),
+for configuring this, edit the `[remote "upstream"]` section in your
+`.git/config` with:
 
 ```ini
 # DO NOT actually comment your url or +fetch/heads/ lines
 [remote "upstream"]
-#	url = https://github.com/sebascert/doc-compiler.git
+#	url = https://github.com/sebascert/docc.git
 #	fetch = +refs/heads/*:refs/remotes/upstream/*
-	fetch = +refs/tags/*:refs/tags/doc-compiler/*
+	fetch = +refs/tags/*:refs/tags/docc/*
 	tagopt = --no-tags
 ```
 
