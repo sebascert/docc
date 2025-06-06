@@ -125,4 +125,8 @@ fi
 mkdir -p "$output_dir"
 
 output="$output_dir/$output_filename"
-pandoc --metadata-file="$metadata" "${listed_sources[@]}" -o "$output"
+pandoc_options=(
+    --metadata-file="$metadata"
+    --filter pandoc-include
+)
+pandoc "${pandoc_options[@]}" "${listed_sources[@]}" -o "$output"
