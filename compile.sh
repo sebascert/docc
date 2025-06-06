@@ -13,6 +13,18 @@ cd "$script_dir" || {
     exit 1
 } >&2
 
+pyvenv_activate=".venv/bin/activate"
+
+source "$pyvenv_activate" || {
+    ./install_dependencies.sh || {
+        echo "failed to install dependencies"
+        echo "failed to install dependencies"
+        exit 1
+    } >&2
+    source "$pyvenv_activate"
+}
+
+
 source_dir="src"
 output_dir="out"
 

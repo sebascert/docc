@@ -10,8 +10,9 @@ Document Compiler compiles a bunch of markdown into a given target, supported by
 
 Document Compiler requires:
 
-- [pandoc 3.x](https://pandoc.org/installing.html).
-- [yq 4.x](https://github.com/mikefarah/yq/#install).
+- [pandoc >=3](https://pandoc.org/installing.html).
+- [python >=3.y](https://www.python.org/downloads/).
+- [yq >=4](https://github.com/mikefarah/yq/#install).
 
 ## How to use
 
