@@ -38,7 +38,7 @@ command -v yq > /dev/null 2>&1  || {
 type="$(yq -r ".${key} | type" "$file")"
 
 # Handle missing key
-if [ "$type" == "null" ]; then
+if [ "$type" == "!!null" ]; then
     [ $optional -eq 0 ] || {
         echo "Config Error: missing mandatory key '$key'"
         exit 1
