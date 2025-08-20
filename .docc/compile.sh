@@ -119,10 +119,13 @@ fi
 mkdir -p "$output_dir"
 
 output="$output_dir/$output_filename"
-pandoc_options=(
-    --metadata-file="$metadata"
-    --filter pandoc-include
-)
+pandoc_options=("--metadata-file=$metadata")
+
+# Enable pandoc include
+enable_pandoc_include=$(./yq_getkey.sh optional bool enable_pandoc_include "$config") || exit 1
+if [ "$enable_pandoc_include" -eq 1 ]; then
+    pandoc_options+=("--filter" "pandoc-include")
+fi
 
 cd "$source_dir" || {
     echo "Error: unable to enter .docc dir"

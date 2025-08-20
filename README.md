@@ -8,7 +8,7 @@ Docc converts a collection of markdown sources into a given target, using
 - [x] Converts structured markdown documents into polished PDFs using Pandoc.
 - [x] Customizable output file name, cover page inclusion, and document
       structure via YAML configuration.
-- [x] Suport [pandoc-include](https://github.com/DCsunset/pandoc-include).
+- [x] Support [pandoc-include](https://github.com/DCsunset/pandoc-include).
 - [x] Supports formatting of source Markdown files using Prettier for
       consistent style.
 
@@ -53,8 +53,10 @@ so run:
 
 ### Pandoc Include Paths
 
-You can user [pandoc-include](https://github.com/DCsunset/pandoc-include) to
+You can use [pandoc-include](https://github.com/DCsunset/pandoc-include) to
 include the contents of files into your document:
+
+> Enable `enable_pandoc_include` in the config to use this.
 
 ```markdown
 !include /.../src/script.py <!-- absolute path-->
@@ -80,6 +82,8 @@ as follows:
 output_filename: doc.pdf
 
 cover_page: true
+
+enable_pandoc_include: false
 
 include_all_sources: true
 # defines the rendering order for the given sources
