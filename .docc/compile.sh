@@ -39,14 +39,14 @@ coverpage_path="$source_dir/cover.md"
 # Retrieve configurations
 
 # Output filename
-output_filename=$(./yq_getkey.sh mandatory string output_filename "$config") || exit 1
+output_filename=$(./yq_getkey.sh mandatory string output-filename "$config") || exit 1
 [ -z "$output_filename" ] && {
     echo "Error: output_filename is empty"
     exit 1
 } >&2
 
 # Cover page
-coverpage_key=$(./yq_getkey.sh mandatory bool cover_page "$config") || exit 1
+coverpage_key=$(./yq_getkey.sh mandatory bool cover-page "$config") || exit 1
 if [ "$coverpage_key" -eq 1 ]; then
     [ -r "$coverpage_path" ] || {
         echo "Error: unable to access $coverpage_path"
@@ -58,11 +58,7 @@ else
 fi
 
 # sources
-if ./yq_getkey.sh optional array sources "$config" | mapfile -d '' -t listed_sources; then
-    :
-else
-    exit 1
-fi
+./yq_getkey.sh optional array sources "$config" | mapfile -d '' -t listed_sources || exit 1
 
 # Append source dir to listed sources
 for i in "${!listed_sources[@]}"; do
@@ -86,7 +82,7 @@ for source in "${listed_sources[@]}"; do
 done
 
 # Include all sources
-include_all_sources_key=$(./yq_getkey.sh mandatory bool include_all_sources "$config") || exit 1
+include_all_sources_key=$(./yq_getkey.sh mandatory bool include-all-sources "$config") || exit 1
 if [ "$include_all_sources_key" -eq 1 ]; then
     # shellcheck disable=SC2207
     listed_sources=($(find "$source_dir" -name '*.md' ! -path "$coverpage_path"))
@@ -122,7 +118,7 @@ output="$output_dir/$output_filename"
 pandoc_options=("--metadata-file=$metadata")
 
 # Enable pandoc include
-enable_pandoc_include=$(./yq_getkey.sh optional bool enable_pandoc_include "$config") || exit 1
+enable_pandoc_include=$(./yq_getkey.sh optional bool enable-pandoc-include "$config") || exit 1
 if [ "$enable_pandoc_include" -eq 1 ]; then
     pandoc_options+=("--filter" "pandoc-include")
 fi

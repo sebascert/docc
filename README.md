@@ -56,7 +56,7 @@ so run:
 You can use [pandoc-include](https://github.com/DCsunset/pandoc-include) to
 include the contents of files into your document:
 
-> Enable `enable_pandoc_include` in the config to use this.
+> Enable `enable-pandoc-include` in the config to use this.
 
 ```markdown
 !include /.../src/script.py <!-- absolute path-->
@@ -79,15 +79,15 @@ Docc configuration is stored in `config/config.yaml`, the available options are
 as follows:
 
 ```yaml
-output_filename: doc.pdf
+output-filename: doc.pdf
 
-cover_page: true
+cover-page: true
 
-enable_pandoc_include: false
+enable-pandoc-include: false
 
-include_all_sources: true
+include-all-sources: true
 # defines the rendering order for the given sources
-# if include_all_sources is set to false, only include this sources
+# if include-all-sources is set to false, only include this sources
 # provide sources relative to src/ i.e. source.md, not src/source.md
 sources:
 #- source1
