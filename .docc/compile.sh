@@ -22,6 +22,7 @@ source "$pyvenv/bin/activate" 2>/dev/null || {
 
 config="$config_dir/config.yaml"
 metadata="$config_dir/metadata.yaml"
+defaults="$config_dir/defaults.yaml"
 
 coverpage_path="$source_dir/cover.md"
 
@@ -115,7 +116,7 @@ fi
 mkdir -p "$output_dir"
 
 output="$output_dir/$output_filename"
-pandoc_options=("--metadata-file=$metadata")
+pandoc_options=("--metadata-file=$metadata" "--defaults=$defaults")
 
 # Enable pandoc include
 enable_pandoc_include=$(./yq_getkey.sh optional bool enable-pandoc-include "$config") || exit 1

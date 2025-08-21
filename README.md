@@ -67,11 +67,13 @@ include the contents of files into your document:
 
 > The default configuration is mostly to my taste.
 
-Pandoc configuration is stored in `config/metadata.yaml`, read the official docs on
-[pandoc metadata](https://pandoc.org/MANUAL.html#metadata-variables) for the
+Pandoc configuration is stored in `config/metadata.yaml` and
+`config/defaults.yanl`, read the official docs on pandoc
+[metadata](https://pandoc.org/MANUAL.html#metadata-variables) and
+[defaults](https://pandoc.org/MANUAL.html#metadata-variables) files for the
 available options. Change the cover contents in `src/cover.md`, read the
-[official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block) for
-the format and options.
+[official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block)
+for the format and options.
 
 > The table of contents is configured in `config/metadata.yaml`
 
