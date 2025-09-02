@@ -2,8 +2,6 @@ output-filename: doc.pdf
 
 cover-page: true
 
-enable-pandoc-include: false
-
 include-all-sources: true
 # defines the rendering order for the given sources
 # if include-all-sources is set to false, only include this sources

@@ -6,9 +6,9 @@ Docc converts a collection of markdown sources into a given target, using
 ## Features
 
 - [x] Converts structured markdown documents into polished PDFs using Pandoc.
+- [x] Supports Flexible configuration of pandoc, with useful default values.
 - [x] Customizable output file name, cover page inclusion, and document
       structure via YAML configuration.
-- [x] Support [pandoc-include](https://github.com/DCsunset/pandoc-include).
 - [x] Supports formatting of source Markdown files using Prettier for
       consistent style.
 
@@ -56,10 +56,10 @@ so run:
 You can use [pandoc-include](https://github.com/DCsunset/pandoc-include) to
 include the contents of files into your document:
 
-> Enable `enable-pandoc-include` in the config to use this.
+> Enabled by adding it to the filters in the `defaults` config file.
 
 ```markdown
-!include /.../src/script.py <!-- absolute path-->
+!include /**/src/script.py <!-- absolute path-->
 !include script.py <!-- relative path to src/ dir-->
 ```
 
@@ -70,7 +70,7 @@ include the contents of files into your document:
 Pandoc configuration is stored in `config/metadata.yaml` and
 `config/defaults.yanl`, read the official docs on pandoc
 [metadata](https://pandoc.org/MANUAL.html#metadata-variables) and
-[defaults](https://pandoc.org/MANUAL.html#metadata-variables) files for the
+[defaults](https://pandoc.org/MANUAL.html#defaults-files) files for the
 available options. Change the cover contents in `src/cover.md`, read the
 [official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block)
 for the format and options.
@@ -84,8 +84,6 @@ as follows:
 output-filename: doc.pdf
 
 cover-page: true
-
-enable-pandoc-include: false
 
 include-all-sources: true
 # defines the rendering order for the given sources

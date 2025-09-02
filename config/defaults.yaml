@@ -1,1 +1,4 @@
 pdf-engine: pdflatex
+
+# filters:
+#   - pandoc-include
