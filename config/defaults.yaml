@@ -1,4 +1,5 @@
 pdf-engine: pdflatex
 
 # filters:
-#   - pandoc-include
+# - pandoc-include
+# - mermaid-filter

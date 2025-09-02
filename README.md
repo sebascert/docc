@@ -11,6 +11,9 @@ Docc converts a collection of markdown sources into a given target, using
       structure via YAML configuration.
 - [x] Supports formatting of source Markdown files using Prettier for
       consistent style.
+- [x] Installation of useful filters such as
+      [pandoc-include](https://github.com/DCsunset/pandoc-include) and
+      [mermaid-filter](https://github.com/raghur/mermaid-filter).
 
 ## Dependencies
 
@@ -56,19 +59,38 @@ so run:
 You can use [pandoc-include](https://github.com/DCsunset/pandoc-include) to
 include the contents of files into your document:
 
-> Enabled by adding it to the filters in the `defaults` config file.
+> Enable it by adding `pandoc-include` to `filters:` in `config/defaults.yaml`.
 
 ```markdown
-!include /**/src/script.py <!-- absolute path-->
+!include /.../src/script.py <!-- absolute path-->
 !include script.py <!-- relative path to src/ dir-->
 ```
+
+### Mermaid Filter
+
+You can use [mermaid-filter](https://github.com/raghur/mermaid-filter) to embed
+mermaid diagrams in your markdown sources.
+
+> Enable it by adding `mermaid-filter` to `filters:` in `config/defaults.yaml`.
+
+````markdown
+<!-- saves diagram to the src/ dir-->
+<!--
+```{.mermaid loc=./}
+%% ...
+```
+-->
+````
+
+When using `loc=dir`, make sure `src/dir/` already exists, as the filter does
+not create it.
 
 ## Config
 
 > The default configuration is mostly to my taste.
 
 Pandoc configuration is stored in `config/metadata.yaml` and
-`config/defaults.yanl`, read the official docs on pandoc
+`config/defaults.yaml`, read the official docs on pandoc
 [metadata](https://pandoc.org/MANUAL.html#metadata-variables) and
 [defaults](https://pandoc.org/MANUAL.html#defaults-files) files for the
 available options. Change the cover contents in `src/cover.md`, read the
