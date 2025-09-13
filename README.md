@@ -9,8 +9,8 @@ Docc converts a collection of markdown sources into a given target, using
 - [x] Supports Flexible configuration of pandoc, with useful default values.
 - [x] Customizable output file name, cover page inclusion, and document
       structure via YAML configuration.
-- [x] Supports formatting of source Markdown files using Prettier for
-      consistent style.
+- [x] Supports formatting of source Markdown files using
+      [dprint](https://dprint.dev/) for consistent style.
 - [x] Installation of useful filters such as
       [pandoc-include](https://github.com/DCsunset/pandoc-include) and
       [mermaid-filter](https://github.com/raghur/mermaid-filter).
@@ -25,8 +25,7 @@ Docc requires:
 
 ## How to use
 
-There are several ways to use this project depending on your [version control
-needs](#version-control-workflows). After choosing a version control workflow,
+There are several ways to use this project depending on your [version control needs](#version-control-workflows). After choosing a version control workflow,
 add your document contents to `src/` in markdown files, then generate your
 document with:
 
@@ -45,7 +44,7 @@ To see the full usage of this script run:
 
 ### Sources Formatting
 
-[Prettier](https://prettier.io/) is used for formatting the source files, to do
+[dprint](https://dprint.dev/) is used for formatting the source files, to do
 so run:
 
 > The cover page is excluded as it uses non standard pandoc markdown syntax.

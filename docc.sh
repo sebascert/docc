@@ -68,7 +68,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if $format_mode; then
-    ./"$docc_dir/format.sh" "$source_dir" "$config_dir"
+    ./"$docc_dir/format.sh"
 else
     cd "$docc_dir" || {
         echo "Error: unable to enter .docc dir"

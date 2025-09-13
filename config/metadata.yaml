@@ -1,8 +1,8 @@
 title: <title>
 subtitle: <subtitle>
 author:
-- name: <first author>
-#- name: <second author>
+  - name: <first author>
+  #- name: <second author>
 
 lang: en
 
