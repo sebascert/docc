@@ -59,7 +59,7 @@ else
 fi
 
 # sources
-./yq_getkey.sh optional array sources "$config" | mapfile -d '' -t listed_sources || exit 1
+mapfile -d '' -t listed_sources < <(./yq_getkey.sh optional array sources "$config") || exit 1
 
 # Append source dir to listed sources
 for i in "${!listed_sources[@]}"; do
