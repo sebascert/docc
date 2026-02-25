@@ -25,9 +25,10 @@ Docc requires:
 
 ## How to use
 
-There are several ways to use this project depending on your [version control needs](#version-control-workflows). After choosing a version control workflow,
-add your document contents to `src/` in markdown files, then generate your
-document with:
+There are several ways to use this project depending on your
+[version control needs](#version-control-workflows). After choosing a version
+control workflow, add your document contents to `src/` in markdown files, then
+generate your document with:
 
 ```bash
 ./docc.sh
@@ -44,8 +45,8 @@ To see the full usage of this script run:
 
 ### Sources Formatting
 
-[dprint](https://dprint.dev/) is used for formatting the source files, to do
-so run:
+[dprint](https://dprint.dev/) is used for formatting the source files, to do so
+run:
 
 > The cover page is excluded as it uses non standard pandoc markdown syntax.
 
@@ -60,9 +61,16 @@ include the contents of files into your document:
 
 > Enable it by adding `pandoc-include` to `filters:` in `config/defaults.yaml`.
 
+Absolute path.
+
 ```markdown
-!include /.../src/script.py <!-- absolute path-->
-!include script.py <!-- relative path to src/ dir-->
+!include /.../src/script.py
+```
+
+Relative path to `src/`.
+
+```markdown
+!include script.py
 ```
 
 ### Mermaid Filter
@@ -93,8 +101,8 @@ Pandoc configuration is stored in `config/metadata.yaml` and
 [metadata](https://pandoc.org/MANUAL.html#metadata-variables) and
 [defaults](https://pandoc.org/MANUAL.html#defaults-files) files for the
 available options. Change the cover contents in `src/cover.md`, read the
-[official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block)
-for the format and options.
+[official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block) for
+the format and options.
 
 > The table of contents is configured in `config/metadata.yaml`
 
@@ -128,9 +136,9 @@ account.
 ### Within a Git Repo
 
 A common scenario is wanting to track the documentation for a project. The
-straightforward approach is to discard the history of this repo, and just
-commit the project files into your project history. However, this becomes
-problematic when you need to upgrade to a different version of Docc.
+straightforward approach is to discard the history of this repo, and just commit
+the project files into your project history. However, this becomes problematic
+when you need to upgrade to a different version of Docc.
 
 A better solution is to use `git submodules`, with them you can manage the
 history of both your project and docc simultaneously by [forking](#github-fork)
