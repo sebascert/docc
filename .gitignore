@@ -1,6 +1,8 @@
-out/
+# output
+/out/
 
-*.pdf
+# mermaid
+mermaid-filter.err
 
 # python
 .env
