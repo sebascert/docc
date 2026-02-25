@@ -59,7 +59,8 @@ run:
 You can use [pandoc-include](https://github.com/DCsunset/pandoc-include) to
 include the contents of files into your document:
 
-> Enable it by adding `pandoc-include` to `filters:` in `config/defaults.yaml`.
+> Enable it by adding `pandoc-include` to `filters:` in
+> `config/pandoc_defaults.yaml`.
 
 Absolute path.
 
@@ -78,7 +79,8 @@ Relative path to `src/`.
 You can use [mermaid-filter](https://github.com/raghur/mermaid-filter) to embed
 mermaid diagrams in your markdown sources.
 
-> Enable it by adding `mermaid-filter` to `filters:` in `config/defaults.yaml`.
+> Enable it by adding `mermaid-filter` to `filters:` in
+> `config/pandoc_defaults.yaml`.
 
 ````markdown
 <!-- saves diagram to the src/ dir-->
@@ -96,15 +98,15 @@ not create it.
 
 > The default configuration is mostly to my taste.
 
-Pandoc configuration is stored in `config/metadata.yaml` and
-`config/defaults.yaml`, read the official docs on pandoc
+Pandoc configuration is stored in `config/pandoc_metadata.yaml` and
+`config/pandoc_defaults.yaml`, read the official docs on pandoc
 [metadata](https://pandoc.org/MANUAL.html#metadata-variables) and
 [defaults](https://pandoc.org/MANUAL.html#defaults-files) files for the
 available options. Change the cover contents in `src/cover.md`, read the
 [official docs](https://pandoc.org/MANUAL.html#extension-pandoc_title_block) for
 the format and options.
 
-> The table of contents is configured in `config/metadata.yaml`
+> The table of contents is configured in `config/pandoc_metadata.yaml`
 
 Docc configuration is stored in `config/config.yaml`, the available options are
 as follows:

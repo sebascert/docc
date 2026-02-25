@@ -20,9 +20,10 @@ source "$pyvenv/bin/activate" 2>/dev/null || {
     source "$pyvenv/bin/activate"
 }
 
-config="$config_dir/config.yaml"
-metadata="$config_dir/metadata.yaml"
-defaults="$config_dir/defaults.yaml"
+config="$config_dir/docc.yaml"
+latex_header="$config_dir/header.tex"
+metadata="$config_dir/pandoc_metadata.yaml"
+defaults="$config_dir/pandoc_defaults.yaml"
 
 coverpage_path="$source_dir/cover.md"
 
@@ -116,7 +117,11 @@ fi
 mkdir -p "$output_dir"
 
 output="$output_dir/$output_filename"
-pandoc_options=("--metadata-file=$metadata" "--defaults=$defaults")
+pandoc_options=(
+    "--metadata-file=$metadata"
+    "--defaults=$defaults"
+    "--include-in-header=$latex_header"
+)
 
 cd "$source_dir" || {
     echo "Error: unable to enter .docc dir"
