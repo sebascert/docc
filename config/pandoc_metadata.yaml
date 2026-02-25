@@ -12,3 +12,9 @@ fontsize: 12pt
 toc: true
 toc-depth: 2
 numbersections: true
+
+geometry:
+  - top=3cm
+  - bottom=2cm
+  - left=2cm
+  - right=2cm

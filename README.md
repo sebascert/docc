@@ -19,6 +19,7 @@ Docc converts a collection of markdown sources into a given target, using
 
 Docc requires:
 
+- [TeX Live >=2023](https://www.tug.org/texlive/). Defaults to XeLaTex.
 - [pandoc >=3](https://pandoc.org/installing.html).
 - [python >=3.7](https://www.python.org/downloads/).
 - [yq >=4](https://github.com/mikefarah/yq/#install).
